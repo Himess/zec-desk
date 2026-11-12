@@ -38,11 +38,21 @@ the amount.
 
 ## What is public, what is hidden
 
-| What | On Sepolia |
-|---|---|
-| Amounts (cUSDC, ZEC, the minimum, the bids) | encrypted; the ZEC amount appears only as the masked M |
-| The Zcash address, the payment's txid and note | never; the address only as `keccak256(salt ‖ receiver)` |
-| That an order exists, its direction, the EVM addresses, the winner, the timing of each step | public |
+Who sees what in a Buy (a Sell mirrors it):
+
+| What | Anyone | Makers | You |
+|---|:---:|:---:|:---:|
+| The order's size | ✗ | ✓ | ✓ |
+| The quotes | ✗ | each its own | the best one |
+| Your minimum | ✗ | ✗ | ✓ |
+| The ZEC amount | only as M | the winner | ✓ |
+| Your Zcash address | ✗ | the winner | ✓ |
+| The Zcash payment | ✗ | the winner | ✓ |
+| The order, its side and timing | ✓ | ✓ | ✓ |
+| The EVM addresses and the winner | ✓ | ✓ | ✓ |
+
+On Sepolia the amounts are encrypted, the ZEC amount appears only as the masked M, and the Zcash address only as a
+salted hash. The payment's transaction and note never reach Sepolia.
 
 **Trust:** Zcash proof of work through the Seam relay; RISC Zero's proof system and router; Zama's key holders and
 coprocessors; the desk's admin for the maker list.
