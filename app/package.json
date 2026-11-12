@@ -1,0 +1,25 @@
+{
+  "name": "zec-desk-app",
+  "private": true,
+  "version": "0.1.0",
+  "description": "ZEC Desk in the browser: buy shielded ZEC with confidential cUSDC on Sepolia (testnet)",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node serve.mjs 8791",
+    "test": "node test/run.mjs",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@fhevm/sdk": "0.13.7",
+    "@noble/hashes": "2.0.1",
+    "@scure/base": "1.2.6",
+    "ethers": "6.17.0",
+    "preact": "10.29.8"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "typescript": "5.9.3"
+  }
+}

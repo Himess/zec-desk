@@ -1,0 +1,57 @@
+{
+  "ZecDesk": "0xBD24DDCa2d509efA2dBabC0d092bd07b2bD8415E",
+  "libraries": {
+    "ZecDeskMatch": "0x5338608e5EF27d66Ee6fCDe6f6Bb693853E056eC",
+    "ZecDeskSettle": "0x924C8E0a3884b2F6Fa688884a3a69b3414Fb85aA"
+  },
+  "chainId": 11155111,
+  "deployBlock": 12118119,
+  "admin": "0xf5c7D114b700e6DE5676eB981A0bC87fB84F2f45",
+  "token": "0xE552Beed2265a8666d25307079fad9eDA2D70172",
+  "tokenIsMock": true,
+  "verifier": "0x321fFfA506893DA5Ac16c883FA3f32bdE3f1c22E",
+  "relay": "0xc85AC30c388C4eD645a4833Ebaa69EEFbB501235",
+  "noProofMocks": false,
+  "verifierImageId": "0x482f76d7fcb1a66943e01e7e68eb00215b66d342f7a77cfe49ba499538e1bc7f",
+  "verifierSelector": "0xe71e6620",
+  "params": {
+    "quoteWindowBlocks": 10,
+    "resolveTimeout": 3600,
+    "fundWindow": 600,
+    "payWindow": 1800,
+    "proveGrace": 604800,
+    "finalizeDepth": 6,
+    "finalizeDelay": 150,
+    "sellCooldownBlocks": 25,
+    "maxMakers": 8,
+    "feeShift": 0,
+    "maxUsd": "100000000",
+    "maxZat": "500000000",
+    "minWork": "3500000"
+  },
+  "makers": [
+    "0xD708a71310ab8C2E5F4d8880FCea246dAf5b80DF"
+  ],
+  "gas": [
+    {
+      "what": "ZecDeskMatch",
+      "tx": "0xa3624aa8d73806b2c176774378f97014d3a8c209572abfabbf01f5db21c56d9e",
+      "gasUsed": "9703770"
+    },
+    {
+      "what": "ZecDeskSettle",
+      "tx": "0x89cb42dda9d986bfafd505c58c35d31556b8480454dd1799554607ac88e7f230",
+      "gasUsed": "11634870"
+    },
+    {
+      "what": "ZecDesk",
+      "tx": "0x700b630479bd4ffa57c77eef9bc29c6753a54c23cb741a07af5e837627901fb2",
+      "gasUsed": "16001758"
+    },
+    {
+      "what": "setMaker 0xD708a71310ab8C2E5F4d8880FCea246dAf5b80DF",
+      "tx": "0x57ff2e4ed6bec3f5d4703b2bb5116642ba8d6d5b86582057ccc91760f9209b87",
+      "gasUsed": "351290"
+    }
+  ]
+}

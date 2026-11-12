@@ -1,0 +1,67 @@
+{
+  "ZecDesk": "0x0B51Be1181A445BBadbdC02A8Ed5fb999E42d731",
+  "libraries": {
+    "ZecDeskMatch": "0x1628cdefbCdcC52Eaf7c169B13dc181D6E87429F",
+    "ZecDeskSettle": "0x1E343B50E0EEAE0a2179d1f8eF7e6fa6f3FCAB74"
+  },
+  "chainId": 11155111,
+  "deployBlock": 12117661,
+  "admin": "0xf5c7D114b700e6DE5676eB981A0bC87fB84F2f45",
+  "token": "0xE552Beed2265a8666d25307079fad9eDA2D70172",
+  "tokenIsMock": true,
+  "verifier": "0x249a0175CB7BFC1CEdcDbB1dFbE3c82C4fa846C7",
+  "relay": "0x1D25B02b56183687a3fa7349bEB0283833950f9C",
+  "noProofMocks": true,
+  "verifierImageId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "verifierSelector": "0x00000000",
+  "params": {
+    "quoteWindowBlocks": 10,
+    "resolveTimeout": 3600,
+    "fundWindow": 600,
+    "payWindow": 1800,
+    "proveGrace": 43200,
+    "finalizeDepth": 6,
+    "finalizeDelay": 150,
+    "sellCooldownBlocks": 25,
+    "maxMakers": 8,
+    "feeShift": 0,
+    "maxUsd": "100000000",
+    "maxZat": "500000000",
+    "minWork": "3500000"
+  },
+  "makers": [
+    "0xD708a71310ab8C2E5F4d8880FCea246dAf5b80DF"
+  ],
+  "gas": [
+    {
+      "what": "NoProofRelay (MOCK)",
+      "tx": "0x7110473939db453e164739a54c775eefbb05550015b6b75345c8bc30c7c1ff3a",
+      "gasUsed": "974684"
+    },
+    {
+      "what": "NoProofVerifier (MOCK)",
+      "tx": "0xcaf93857bbb25161cc89687dabad42622fb7df6adc86ebe29ef38206211ef5b3",
+      "gasUsed": "1067744"
+    },
+    {
+      "what": "ZecDeskMatch",
+      "tx": "0xba973fb012ba3dfb88f7cce206b85dc24abf72885aa502efce908f6990e5f257",
+      "gasUsed": "9703770"
+    },
+    {
+      "what": "ZecDeskSettle",
+      "tx": "0x3de162ded5883ccb244172361ab38a8aa6b1b7b701b51810ff2981dec12b8087",
+      "gasUsed": "11634870"
+    },
+    {
+      "what": "ZecDesk",
+      "tx": "0x65f634b80f7740d7455544568430035a508ddf21b9e380a5cafcb3e9f5311033",
+      "gasUsed": "16001641"
+    },
+    {
+      "what": "setMaker 0xD708a71310ab8C2E5F4d8880FCea246dAf5b80DF",
+      "tx": "0xb7d07ea76aad79fa64468c8d647a68211790d294e370bb3627f9f7c9f1964054",
+      "gasUsed": "351290"
+    }
+  ]
+}

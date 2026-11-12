@@ -1,0 +1,33 @@
+{
+  "what": "The one GPU proof of ZEC Desk's first Buy, its submission and settlement on Ethereum Sepolia",
+  "date": "2026-11-12",
+  "desk": "0xBD24DDCa2d509efA2dBabC0d092bd07b2bD8415E",
+  "order": "0xb2e2b26faa7e8867c6deb117131d573875392296bdb6bc1d06fd3e60f35b6714",
+  "guest": "payment-masked-test",
+  "imageId": "0x482f76d7fcb1a66943e01e7e68eb00215b66d342f7a77cfe49ba499538e1bc7f",
+  "selector": "0xe71e6620",
+  "risc0": "risc0-zkvm 3.1.0, risc0-groth16 3.0.6 (rzup component 0.2.0)",
+  "executor": { "cycles": 19881762, "segments": 21, "segmentPo2": 20 },
+  "machine": {
+    "where": "vast.ai, Ubuntu 22.04 VM template, Spain",
+    "gpu": "NVIDIA GeForce RTX 4090 (24 GB), driver 575.51.03",
+    "cpu": "30 vCPU",
+    "ram": "48 GB",
+    "cuda": "12.8 compiler packages installed on the VM (it had the driver, no toolkit)",
+    "price": "$0.570 an hour"
+  },
+  "timings": {
+    "succinctOnGpu": "30.4 s (22,020,096 cycles in 21 segments of 2^20, verified)",
+    "groth16Wrap": "91.1 s (verified)",
+    "firstRun": "11:04:44-11:13:18 UTC: CUDA 12.8 compiler, Rust, rzup, seam with cuda (6 min 14 s); stopped at a PATH bug in gpu-day.sh",
+    "secondRun": "11:15:00-11:17:32 UTC: seam without cuda, image id check, executor, proof, Groth16, wipe",
+    "session": "about 25 minutes from rent to destroy, about $0.25"
+  },
+  "journal": "0x00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000077190ad97fe63d2d791362a2ed3b783ca7da093db1d6ea2e72676ea52a2bdde1281200005c81682d0500d952040b0b566a265471e454614721b3bde84101cbe1a9b9f93349fd300018c241c19d7d775d5e0612569f8790d4b1814386580d9a77b887463e000000000000000000000000000000000000000000000000c215445ae75bfb33",
+  "onChain": {
+    "proveSettlement": { "tx": "0xd1981fb6d92c9827646d3d3f1594a302b77888ef550f811df040321c2d6c8ad2", "gas": 547360, "readyHeight": 4611481 },
+    "relayHeaders": { "tx": "0xdf348b10f4375d0be4f912dca3c224cd5d71ab356eacaa19abb8be5bc0f20962", "gas": 8221506, "headers": "8 (4,611,476 to 4,611,483)" },
+    "finalizeSettlement": { "tx": "0x278206a1fb1794f234c69e54c076ecbec66300cb39970cd07120fb4f6057271f", "gas": 1074376, "by": "the maker", "status": "Settled" }
+  },
+  "note": "The journal and seal are public: they are in the proveSettlement transaction. The witness was shredded on the GPU machine, which was then destroyed."
+}

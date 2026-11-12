@@ -1,0 +1,23 @@
+{
+  "desk": "0x0B51Be1181A445BBadbdC02A8Ed5fb999E42d731",
+  "order": "0x91925a0afb14feb1bcdae19cae26d55299cbb647a3eedf5eb61862220be184c5",
+  "side": "buy",
+  "final": "Matched",
+  "gas": [
+    {
+      "step": "setOperator",
+      "gas": "128256",
+      "tx": "0x43007d74d87400cf45f70f4d187a3de69491cade1a78071404c488995a523f09"
+    },
+    {
+      "step": "openBuy",
+      "gas": "3714879",
+      "tx": "0x56907871bebe5efab199d37dad2d843f379a8729b51de9f10e19171cfe6b761c"
+    },
+    {
+      "step": "resolve (user)",
+      "gas": "979093",
+      "tx": "0xd43d72f1e1817d28d5a03541eb0e633959c42bb67c3dd59bf5224044f5924985"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+# ZEC Desk maker: an example configuration for Sepolia and Zcash Testnet. Every secret stays in its own file, named
+# here by its path; keep them, and work_dir, readable by the maker's user only.
+
+rpc_url_file = "/home/maker/.zec-desk/rpc-url"
+key_file = "/home/maker/.zec-desk/maker.key"
+desk = "0x0000000000000000000000000000000000000000"
+start_block = 0
+work_dir = "/home/maker/.zec-desk/work"
+poll_secs = 12
+privacy_delay_max_secs = 60
+# 10 TAZ offered across open Buy orders; the wallet must hold it.
+zec_inventory_zat = 1000000000
+operator_days = 30
+# A host without a GPU: no proofs here (a CPU proof takes hours); the user, or a GPU host, proves.
+prove = true
+
+[api]
+listen = "127.0.0.1:8787"
+origins = ["http://localhost:5173"]
+
+[fhe]
+socket = "/run/zama-sdk/daemon.sock"
+
+[pricing]
+# 40 cUSDC per ZEC (cUSDC has 6 decimals), less 0.5%.
+zec_price_units = 40000000
+spread_bps = 50
+min_usd_units = 1000000
+max_usd_units = 100000000
+min_zat = 1000000
+max_zat = 500000000
+fee_headroom_zat = 20000
+
+[timing]
+min_pay_lead_secs = 900
+# Headers on top of the anchor beyond the desk's MIN_WORK (on Testnet about 10 blocks): a margin.
+anchor_depth = 2
+max_proof_attempts = 2
+
+[seam]
+bin = "/home/maker/seam/target/release/seam"
+data_dir = "/home/maker/.zec-desk/seam-data"
+masked_elf = "/home/maker/guests/payment-masked-test.bin"
+wallet = "/home/maker/.zec-desk/zcash-wallet.json"
+address_file = "/home/maker/.zec-desk/zcash-address"
+ufvk_file = "/home/maker/.zec-desk/zcash-ufvk"

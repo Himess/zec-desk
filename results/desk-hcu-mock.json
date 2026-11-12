@@ -1,0 +1,98 @@
+{
+  "limits": {
+    "tx": 20000000,
+    "depth": 5000000
+  },
+  "rows": [
+    {
+      "op": "openBuy",
+      "hcu": 736128,
+      "depth": 519000,
+      "gas": 2012314
+    },
+    {
+      "op": "quote (first)",
+      "hcu": 262032,
+      "depth": 207000,
+      "gas": 702811
+    },
+    {
+      "op": "quote (better)",
+      "hcu": 262032,
+      "depth": 207000,
+      "gas": 742635
+    },
+    {
+      "op": "resolve (Buy)",
+      "hcu": 369032,
+      "depth": 207000,
+      "gas": 562007
+    },
+    {
+      "op": "publishBuyResolution",
+      "hcu": 0,
+      "depth": 0,
+      "gas": 307639
+    },
+    {
+      "op": "proveSettlement",
+      "hcu": 0,
+      "depth": 0,
+      "gas": 113441
+    },
+    {
+      "op": "finalizeSettlement (no fee)",
+      "hcu": 586032,
+      "depth": 369000,
+      "gas": 682440
+    },
+    {
+      "op": "refund (NoMatch Buy)",
+      "hcu": 586032,
+      "depth": 369000,
+      "gas": 662608
+    },
+    {
+      "op": "openSell",
+      "hcu": 150064,
+      "depth": 150000,
+      "gas": 1231721
+    },
+    {
+      "op": "resolve (Sell)",
+      "hcu": 207032,
+      "depth": 207000,
+      "gas": 408497
+    },
+    {
+      "op": "publishSellResolution",
+      "hcu": 0,
+      "depth": 0,
+      "gas": 282585
+    },
+    {
+      "op": "fund",
+      "hcu": 868064,
+      "depth": 369000,
+      "gas": 1397761
+    },
+    {
+      "op": "publishFunding",
+      "hcu": 0,
+      "depth": 0,
+      "gas": 281905
+    },
+    {
+      "op": "refund (unpaid Sell)",
+      "hcu": 586032,
+      "depth": 369000,
+      "gas": 669331
+    },
+    {
+      "op": "finalizeSettlement (fee)",
+      "hcu": 1368096,
+      "depth": 782000,
+      "gas": 1413445
+    }
+  ]
+}

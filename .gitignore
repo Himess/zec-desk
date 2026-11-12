@@ -1,0 +1,20 @@
+node_modules/
+artifacts/
+cache/
+typechain-types/
+coverage/
+dist/
+fhevmTemp/
+.env
+.env.*
+!.env.example
+*.log
+results/*-local.json
+
+# Rust builds
+target/
+# The working design notes reference private material: kept out of the public repository.
+docs/PHASE0-DESIGN.md
+# A draft screenshot from before the desk was deployed, and the X post's text: not part of the repository.
+docs/screens/
+media/x-post/post.txt
