@@ -2,7 +2,7 @@
   "name": "zec-desk",
   "version": "0.0.1",
   "private": true,
-  "description": "Research prototype: confidential swaps between shielded ZEC on Zcash and confidential dollars (ERC-7984) on Zama's FHEVM, settled by Seam payment proofs. Testnets only.",
+  "description": "Research prototype: confidential swaps between shielded ZEC on Zcash and confidential USDC (cUSDC, ERC-7984) on Zama's FHEVM, settled by Seam payment proofs. Testnets only.",
   "license": "MIT",
   "engines": {
     "node": ">=20"

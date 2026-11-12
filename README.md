@@ -1,6 +1,6 @@
 # ZEC Desk
 
-Sealed-bid swaps between shielded ZEC and a confidential dollar, with the amounts hidden on both chains. Makers bid
+Sealed-bid swaps between shielded ZEC and confidential USDC (cUSDC), with the amounts hidden on both chains. Makers bid
 encrypted quotes on Ethereum Sepolia (Zama's FHEVM); the best bid at or above the user's encrypted minimum wins; the ZEC
 moves as a shielded Ironwood payment on Zcash Testnet; a [Seam](https://github.com/Himess/seam) amount-hidden payment
 proof releases the escrow. No custodian, no bridge, no multisig.
@@ -12,7 +12,6 @@ proof releases the escrow. No custodian, no bridge, no multisig.
 ## How a Buy works
 
 ![The five steps of a Buy across the two chains](media/x-post/02-trade.png)
-
 
 1. The user locks cUSDC and states, encrypted, its amount, the least ZEC it accepts, and a mask R derived from a fresh
    salt. Only a salted commitment of its Zcash address goes on chain.
@@ -32,12 +31,14 @@ either side proves it.
 
 ![Z (the amount, encrypted) + R (a secret mask) = M, what the chain sees; the proof checks paid ≥ M − R](media/x-post/03-masked.png)
 
-| | |
+| What | On Sepolia |
 |---|---|
-| Amounts (cUSDC, ZEC, the minimum, the bids) | encrypted on Sepolia; the ZEC amount appears only as the masked M |
-| The Zcash address, the payment's txid and note | never on Sepolia; the address only as `keccak256(salt ‖ receiver)` |
-| Public | that an order exists, its direction, the EVM addresses, the winner, and the timing of each step |
-| Trust | Zcash proof of work through the Seam relay; RISC Zero's proof system and router; Zama's key holders and coprocessors; the desk's admin for the maker list |
+| Amounts (cUSDC, ZEC, the minimum, the bids) | encrypted; the ZEC amount appears only as the masked M |
+| The Zcash address, the payment's txid and note | never; the address only as `keccak256(salt ‖ receiver)` |
+| That an order exists, its direction, the EVM addresses, the winner, the timing of each step | public |
+
+**Trust:** Zcash proof of work through the Seam relay; RISC Zero's proof system and router; Zama's key holders and
+coprocessors; the desk's admin for the maker list.
 
 ## Repository
 
@@ -59,7 +60,7 @@ public-testnet runs without proofs), `TestConfidentialUSD` and the deployed test
 
 ## Live on Sepolia (12 November 2026)
 
-| | Address |
+| Contract | Address |
 |---|---|
 | Seam relay (Zcash Testnet, checkpoint 4,611,400) | `0xc85AC30c388C4eD645a4833Ebaa69EEFbB501235` (library `ZcashEquihash` `0x42847B5C7a13abd1c9b0E61ea59E44f1EE1351aD`) |
 | Seam amount-hidden payment verifier (`payment-masked-test` `0x482f76d7…bc7f`, selector `0xe71e6620`, RISC Zero's router) | `0x321fFfA506893DA5Ac16c883FA3f32bdE3f1c22E` |
@@ -76,7 +77,7 @@ paid it the escrowed cUSDC: Settled. The record is [`results/proof-b2e2b26f.json
 
 ## The proof (one GPU session, 12 November 2026)
 
-| | |
+| Step | Measured |
 |---|---|
 | The guest, in the executor | 19,881,762 cycles in 21 segments of 2^20 |
 | The succinct (STARK) receipt, on the GPU | 30.4 s |
@@ -124,7 +125,7 @@ in batches in a zkVM so the relay checks one proof for many headers (on Seam's r
 
 ## Where it can run
 
-The desk is its own contract: it needs Zama's FHEVM, a confidential dollar and an EVM where Seam runs (the BLAKE2b
+The desk is its own contract: it needs Zama's FHEVM, a confidential USDC (cUSDC) and an EVM where Seam runs (the BLAKE2b
 precompile and RISC Zero's verifier router). It doesn't need Zama's own swap on that chain.
 
 - **Ethereum Sepolia:** today (this prototype).
