@@ -27,9 +27,16 @@ proof releases the escrow. No custodian, no bridge, no multisig.
 A Sell is the mirror: the maker locks its quote and gives its receiver commitment and mask; the user pays the ZEC and
 either side proves it.
 
-## What is public, what is hidden
+## The masked amount
 
 ![Z (the amount, encrypted) + R (a secret mask) = M, what the chain sees; the proof checks paid ≥ M − R](media/x-post/03-masked.png)
+
+Seam's original proof states the amount paid, and the ZEC amount times the price would give the dollar amount away. So
+the desk adds an encrypted one-time mask R, derived from the receiver's salt and the order's reference, to the
+encrypted amount, and decrypts only M = Z + R. The proof checks that the payment paid at least M − R and never states
+the amount.
+
+## What is public, what is hidden
 
 | What | On Sepolia |
 |---|---|
@@ -62,10 +69,15 @@ public-testnet runs without proofs), `TestConfidentialUSD` and the deployed test
 
 | Contract | Address |
 |---|---|
-| Seam relay (Zcash Testnet, checkpoint 4,611,400) | `0xc85AC30c388C4eD645a4833Ebaa69EEFbB501235` (library `ZcashEquihash` `0x42847B5C7a13abd1c9b0E61ea59E44f1EE1351aD`) |
-| Seam amount-hidden payment verifier (`payment-masked-test` `0x482f76d7…bc7f`, selector `0xe71e6620`, RISC Zero's router) | `0x321fFfA506893DA5Ac16c883FA3f32bdE3f1c22E` |
-| ZecDesk (proving window 7 days) | `0xBD24DDCa2d509efA2dBabC0d092bd07b2bD8415E` |
+| Seam relay | `0xc85AC30c388C4eD645a4833Ebaa69EEFbB501235` |
+| Its `ZcashEquihash` library | `0x42847B5C7a13abd1c9b0E61ea59E44f1EE1351aD` |
+| Seam amount-hidden verifier | `0x321fFfA506893DA5Ac16c883FA3f32bdE3f1c22E` |
+| ZecDesk | `0xBD24DDCa2d509efA2dBabC0d092bd07b2bD8415E` |
 | Token (MOCK tcUSD) | `0xE552Beed2265a8666d25307079fad9eDA2D70172` |
+
+The relay's checkpoint is Zcash Testnet block 4,611,400. The verifier pins the guest `payment-masked-test`
+(`0x482f76d7…bc7f`) and checks proofs through RISC Zero's router (selector `0xe71e6620`). The desk's proving window is
+7 days.
 
 The first order, a Buy of 1.2 cUSDC, ran end to end: one maker quoted encrypted; the desk matched it at 0.02985 ZEC
 (the user reads it as M − R); the user handed its address to the maker; the maker paid it shielded on Zcash Testnet
